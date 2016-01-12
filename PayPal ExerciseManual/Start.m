@@ -54,9 +54,9 @@
     PayPalPayment *payment = [[PayPalPayment alloc] init];
     
     // Amount, currency, and description
-    payment.amount = [[NSDecimalNumber alloc] initWithString:@"39.95"];
-    payment.currencyCode = @"USD";
-    payment.shortDescription = @"Awesome saws";
+    payment.amount = [[NSDecimalNumber alloc] initWithString:@"500.00"];
+    payment.currencyCode = @"MXN";
+    payment.shortDescription = @"Blusa Bordada - Tlahuitoltepec";
     
     // Use the intent property to indicate that this is a "sale" payment,
     // meaning combined Authorization + Capture.
@@ -111,6 +111,9 @@
     NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation
                                                            options:0
                                                              error:nil];
+    
+    NSLog(@"confirmation %@", confirmation);
+    NSLog(@"completedPayment %@", completedPayment);
     
     // Send confirmation to your server; your server should verify the proof of payment
     // and give the user their goods or services. If the server is not reachable, save
